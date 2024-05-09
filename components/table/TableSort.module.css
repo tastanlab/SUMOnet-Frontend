@@ -1,0 +1,58 @@
+/* TableSort.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+.th,
+.td {
+  border-right: 1px solid #e1e1e1; /* Add right borders to all cells */
+  border-bottom: 1px solid #ccc; /* Add bottom borders to separate rows */
+}
+
+.th {
+  border-top: 1px solid #ccc; /* Top border for headers */
+
+  text-align: center; /* Left align the text content of table headers */
+}
+
+.table {
+  border-collapse: collapse; /* Ensures borders between cells are merged properly */
+  width: 100%; /* Optional: ensures the table uses the full container width */
+}
+
+.peptideSequence {
+  font-family: "Roboto Mono", monospace;
+}
+
+.peptideSequenceHeaders {
+  font-family: "Roboto Mono", monospace;
+}
+
+.control {
+  width: 100%;
+  padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+
+  @mixin hover {
+    background-color: light-dark(
+      var(--mantine-color-gray-0),
+      var(--mantine-color-dark-6)
+    );
+  }
+}
+
+.icon {
+  width: rem(21px);
+  height: rem(21px);
+  border-radius: rem(21px);
+  align-items: center;
+}
+A .tableCell {
+  min-width: 120px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.th a,
+.td a {
+  text-decoration: none; /* Add underline for better visibility */
+}

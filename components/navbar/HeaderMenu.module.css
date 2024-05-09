@@ -1,0 +1,75 @@
+/* HeaderMenu.module.css */
+
+/* Add styles for active link */
+.activeLink {
+  /* Add your styles for active link here */
+  /* For example, changing the color */
+  background-color: rgba(34,139,230,255);
+}
+
+/* Add hover effect for active link */
+.activeLink:hover {
+  /* Add your hover styles for active link here */
+  /* For example, changing the background color */
+  background-color: rgba(34,139,230,255);
+}
+
+.header {
+  height: 56px;
+  margin-bottom: 50px;
+  background-color: var(--mantine-color-body);
+  /*background: linear-gradient(
+    45deg,
+    rgba(34, 195, 188, 1) 0%,
+    rgba(34, 126, 195, 1) 25%,
+    rgba(34, 126, 195, 1) 73%,
+    rgba(34, 195, 188, 1) 100%
+  );*/
+  border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}
+
+.inner {
+  height: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  display: block;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-dark-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-md);
+  font-weight: 500;
+}
+
+.link:hover {
+  background-color: light-dark(
+    var(--mantine-color-gray-0),
+    var(--mantine-color-dark-6)
+  );
+}
+
+.linkLabel {
+  margin-right: 5px;
+}
+
+.navList {
+  display: block;
+  position: absolute; /* koordinat vereceğimiz için... */
+  top: 55px;
+  left: 0;
+  background-color: var(--mantine-color-white);
+  width: 50%;
+  height: 100vh;
+  opacity: 0.96;
+  transition: all 0.4s ease;
+  z-index: 98;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
