@@ -26,6 +26,9 @@ function Prot() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState(''); // State to store the error message
   const [showError, setShowError] = useState(false);
+  const [warningMsg, setWarningMsg] = useState(''); // State to store the error message
+  const [showWarning, setShowWarning] = useState(false);
+  
   const handleLoadSampleUniprot = () => {
     setUniProtID('O00566');
   };
@@ -57,6 +60,7 @@ function Prot() {
   const handleSubmit = async (event) => {
     setPredictionsData(null);
     setShowError(false);
+    setShowWarning(false);
     event.preventDefault();
     
     setIsLoading(true);
@@ -89,7 +93,15 @@ function Prot() {
 
       const predictions = response.data.data;
       setPredictionsData(predictions);
-      console.log(predictions);
+      const Invalid_Ids = response.data.invalid_idS;
+      //console.log(Invalid_Ids);
+      //console.log(predictions);
+      if(Invalid_Ids.length != 0)
+        {
+          const message = "You entered invalid Uniprot ID(s). Invalid Uniprot ID(s): " + Invalid_Ids;
+          setWarningMsg(message); 
+          setShowWarning(true);
+        }
     } catch (error) {
       if (error.response) {
         setErrorMsg(error.response.data.error); // Extract the error message from the response
@@ -177,7 +189,13 @@ function Prot() {
       
     )}
       <Space h="xl" />
-
+      {showWarning && (
+      <Alert color="yellow" withCloseButton onClose={() => setShowWarning(false)} title="Warning!">
+        {warningMsg}
+      </Alert>
+      
+    )}
+    <Space h="xl" />
     {/* Display predictions data if available */}
     <Container>
       {!isLoading && isSubmitted ? <TableSort predictions={predictionsData}/> : null}
