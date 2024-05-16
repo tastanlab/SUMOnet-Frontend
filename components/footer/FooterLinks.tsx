@@ -1,8 +1,6 @@
 'use client'
 import { Text, Container, ActionIcon, Group, rem, Image, Center, Space } from '@mantine/core';
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram, IconBrandX } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
-import { title } from 'process';
 
 const data = [
   {
@@ -42,6 +40,7 @@ export function FooterLinks() {
   });
 
   return (
+    
     <footer className={classes.footer}>
       <Center className={classes.inner}>
         <div className={classes.logo}>

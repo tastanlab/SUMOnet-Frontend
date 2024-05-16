@@ -10,9 +10,9 @@ const links = [
   {
     label: 'Predict',
     links: [
-      { link: '/uniprot-id', label: 'Uniprot ID Prediction' },
-      { link: '/protein-sequence', label: 'Protein Sequence Prediction' },
-      { link: '/fasta-file', label: 'Fasta File Prediction' }
+      { link: '/uniprot-id', label: 'Predict with Uniprot ID' },
+      { link: '/protein-sequence', label: 'Predict with Protein Sequence' },
+      { link: '/fasta-file', label: 'Predict with Fasta File' }
     ],
   },
   { 

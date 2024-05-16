@@ -285,6 +285,7 @@ export function TableSort({ predictions }: TableResProps) {
       <Flex direction={'row'} gap="275px" align="center" justify="center">
       {predictions && predictions.length > 0 && (
         <>
+        <Flex direction={'row'} justify="space-between" align="center" style={{ width: '895px' }}>
           <Pagination
             total={Math.ceil(predictions.length / rowsPerPage)} // Total number of pages
             onChange={handlePageChange}
@@ -302,9 +303,11 @@ export function TableSort({ predictions }: TableResProps) {
             variant="gradient"
             color="blue"
           >
-            Download
+            Download CSV
           </Button>
+          </Flex>
         </>
+        
 )}
       </Flex>
       <Space h="lg" />
