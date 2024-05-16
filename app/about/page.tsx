@@ -10,12 +10,12 @@ export default function AboutPage() {
   predicting potential protein chains resulting from the SUMOylation process, which is implicated in genetic-based diseases such as
 Alzheimer's, cancer, and diabetes. The third version of SUMOnet (SUMOnet-3) is deployed in this website.<br/> SUMOnet takes 3 different input types: First, the user can enter the UniprotID of the protein and the lysine position (optionally)
 Another input type is entering the protein sequence that needs to be evaluated. Lastly, user can enter the input as FASTA format. <br/>
-After analyzed by machine learning model, SUMOnet gives the output as Protein ID, Peptide Sequence, Lysine Position, Sumoylation/Non-Sumoylation Probability and the Predicted Label.
+After analyzed by machine learning model, SUMOnet gives the output as Protein ID, Peptide Sequence, Lysine Position, Sumoylation Probability and the Predicted Label.
  </Text>
  <br/>
  <div>
           <Image 
-          src="/exampleOutput.png"
+          src="/exampleOutput1.png"
           alt="Output"   
           radius="md"
           fit="contain"
@@ -95,8 +95,7 @@ After analyzed by machine learning model, SUMOnet gives the output as Protein ID
           </Text>
 
         </Container>
-       </Container>
-      
+       </Container> 
     );
   }
   

@@ -1,9 +1,9 @@
-"use client"
+'use client'
 import { Menu, Group, Center, Burger, Container, Anchor, Transition } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown } from '@tabler/icons-react';
 import classes from './HeaderMenu.module.css';
 import { useState } from 'react';
-import { usePathname } from 'next/navigation'; // Import usePathname from next/navigation
 
 const links = [
   { link: '/about', label: 'About' },
@@ -15,36 +15,17 @@ const links = [
       { link: '/fasta-file', label: 'Fasta File Prediction' }
     ],
   },
-  { link: '/tutorial', label: 'Tutorial' },
+  { 
+    label: 'Tutorial',
+    links: [
+      { link: '/beginner-tutorial', label: 'Beginner Tutorial' },
+      { link: '/advanced-tutorial', label: 'Advanced Tutorial' }
+    ]
+  }
 ];
 
 export function HeaderMenu() {
-  const pathname = usePathname(); // Get the current pathname using usePathname
   const [opened, setOpened] = useState(false);
-
-  const isActivePredictLink = () => {
-    return ['/uniprot-id', '/protein-sequence', '/fasta-file','/'].includes(pathname);
-  };
-
-  const isActiveAboutLink = () => {
-    return pathname === '/about';
-  };
-
-  const isActiveTutorialLink = () => {
-    return pathname === '/tutorial';
-  };
-
-  const isActiveLink = (label) => {
-    if (label === 'Predict') {
-      return isActivePredictLink();
-    } else if (label === 'About') {
-      return isActiveAboutLink();
-    } else if (label === 'Tutorial') {
-      return isActiveTutorialLink();
-    }
-    return false;
-  };
-
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <a href={item.link} key={item.link} className={classes.noUnderline}>
@@ -54,12 +35,12 @@ export function HeaderMenu() {
 
     if (menuItems) {
       return (
-        <Menu  key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
+        <Menu key={link.label} trigger="hover" transitionProps={{ exitDuration: 0 }} withinPortal>
           <Menu.Target>
             <a
               key={link.label}
               href={link.link}
-              className={`${classes.link} ${isActiveLink(link.label) ? classes.activeLink : ''}`}
+              className={classes.link}
             >
               <Center>
                 <span className={classes.linkLabel}>{link.label}</span>
@@ -76,7 +57,7 @@ export function HeaderMenu() {
       <a
         key={link.label}
         href={link.link}
-        className={`${classes.link} ${isActiveLink(link.label) ? classes.activeLink : ''}`}
+        className={classes.link}
       >
         {link.label}
       </a>
@@ -87,19 +68,18 @@ export function HeaderMenu() {
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
         <Anchor href='/uniprot-id'
-        variant="gradient"
-        gradient={{ from: 'blue', to: 'blue' }}
-        styles={(theme)=>({
-          root:{
-            fontSize:'40px',
-            fontFamily: "Roboto Mono, monospace",
-          },
-        })}
-        
-        size='xl'
-        c={'blue'}
-        fw={700}
-        underline='never'
+          variant="gradient"
+          gradient={{ from: 'blue', to: 'blue' }}
+          styles={(theme)=>({
+            root:{
+              fontSize:'40px',
+              fontFamily: "Roboto Mono, monospace",
+            },
+          })}
+          size='xl'
+          c={'blue'}
+          fw={700}
+          underline='never'
         >
           SUMONET
         </Anchor>
