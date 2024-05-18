@@ -9,8 +9,9 @@
 
 .th {
   border-top: 1px solid #ccc; /* Top border for headers */
-
-  text-align: center; /* Left align the text content of table headers */
+  text-align: center; /* Center align the text content of table headers */
+  vertical-align: middle; /* Ensure vertical alignment in the middle */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .table {
@@ -29,7 +30,6 @@
 .control {
   width: 100%;
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
-
   @mixin hover {
     background-color: light-dark(
       var(--mantine-color-gray-0),
@@ -44,7 +44,8 @@
   border-radius: rem(21px);
   align-items: center;
 }
-A .tableCell {
+
+.tableCell {
   min-width: 120px;
   max-width: 200px;
   white-space: nowrap;
@@ -54,5 +55,5 @@ A .tableCell {
 
 .th a,
 .td a {
-  text-decoration: none; /* Add underline for better visibility */
+  text-decoration: none; /* Remove underline for better visibility */
 }

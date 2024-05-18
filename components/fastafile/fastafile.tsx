@@ -116,11 +116,11 @@ function FastaFile() {
       <Space h="xl" />
       <Space h="xl" />
 
-      <Container>
+      
         {isLoading ? null : isSubmitted && predictionsData ? (
           <TableSort predictions={predictionsData} />
         ) : null}
-      </Container>
+    
 
       {/* Error Alert */}
       {showError && (

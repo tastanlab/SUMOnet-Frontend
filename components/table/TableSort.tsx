@@ -52,40 +52,40 @@ function Th({ children, reversed, sorted, onSort, showSearch, onToggleSearch, se
   const Icon = sorted ? (reversed ? IconChevronUp : IconChevronDown) : IconSelector;
   return (
     <Table.Th className={classes.th}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
-          <UnstyledButton onClick={onSort} style={{ display: 'flex', alignItems: 'center' }}>
-            <Text fw={500} fz="md">
-              {children}
-            </Text>
-            <Space w="xs" />
-            <Center className={classes.icon}>
-              <Icon style={{ width: rem(16), height: rem(16) }} stroke={1.5} />
-            </Center>
-          </UnstyledButton>
-          {onToggleSearch && (
-            <ActionIcon onClick={onToggleSearch} variant="transparent" style={{ color: 'inherit' }}>
-              <IconSearch size={16} />
-            </ActionIcon>
-          )}
-        </div>
-        {showSearch && (
-          <TextInput
-            value={searchValue}
-            onChange={onSearchChange}
-            placeholder={placeholder}
-            style={{ marginTop: '10px', width: '100%' }}
-            rightSection={
-              <ActionIcon onClick={onToggleSearch} variant="transparent" style={{ color: 'inherit' }}>
-                <IconX size={16} />
-              </ActionIcon>
-            }
-          />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+        <UnstyledButton onClick={onSort} style={{ display: 'flex', alignItems: 'center' }}>
+          <Text fw={500} fz="md">
+            {children}
+          </Text>
+          <Space w="xs" />
+          <Center className={classes.icon}>
+            <Icon style={{ width: rem(16), height: rem(16) }} stroke={1.5} />
+          </Center>
+        </UnstyledButton>
+        {onToggleSearch && (
+          <ActionIcon onClick={onToggleSearch} variant="transparent" style={{ color: 'inherit' }}>
+            <IconSearch size={16} />
+          </ActionIcon>
         )}
       </div>
+      {showSearch && (
+        <TextInput
+          value={searchValue}
+          onChange={onSearchChange}
+          placeholder={placeholder}
+          style={{ marginTop: '5px', width: '120px', fontWeight: 'normal' }}  // Adjust width and font weight here
+          rightSection={
+            <ActionIcon onClick={onToggleSearch} variant="transparent" style={{ color: 'inherit' }}>
+              <IconX size={16} />
+            </ActionIcon>
+          }
+        />
+      )}
     </Table.Th>
   );
 }
+
+
 
 function sortData(
   data: RowData[],
@@ -198,6 +198,7 @@ export function TableSort({ predictions }: TableResProps) {
           <thead>
             <tr>
               <Th
+                
                 sorted={sortBy === 'protein_id'}
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('protein_id')}
@@ -208,7 +209,7 @@ export function TableSort({ predictions }: TableResProps) {
                   setSearchProteinId(e.target.value);
                   setSortedData(sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId: e.target.value, searchLysinePosition }));
                 }}
-                placeholder="Search Protein ID"
+                placeholder="Search"
               >
                 Protein ID
               </Th>
@@ -223,7 +224,7 @@ export function TableSort({ predictions }: TableResProps) {
                   setSearchLysinePosition(e.target.value);
                   setSortedData(sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId, searchLysinePosition: e.target.value }));
                 }}
-                placeholder="Search Lysine Position"
+                placeholder="Search"
               >
                 Lysine Position
               </Th>
