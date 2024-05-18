@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, ScrollArea, UnstyledButton, Text, Center, TextInput, rem, Pagination, Space, Button, Flex, ActionIcon } from '@mantine/core';
 import { IconSelector, IconChevronDown, IconChevronUp, IconSearch, IconDownload, IconX } from '@tabler/icons-react';
 import classes from './TableSort.module.css';
@@ -85,8 +85,6 @@ function Th({ children, reversed, sorted, onSort, showSearch, onToggleSearch, se
   );
 }
 
-
-
 function sortData(
   data: RowData[],
   payload: { sortBy: keyof RowData | null; reversed: boolean; searchProteinId: string; searchLysinePosition: string }
@@ -123,6 +121,10 @@ export function TableSort({ predictions }: TableResProps) {
   const [showProteinIdSearch, setShowProteinIdSearch] = useState(false);
   const [showLysinePositionSearch, setShowLysinePositionSearch] = useState(false);
 
+  useEffect(() => {
+    setSortedData(sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId, searchLysinePosition }));
+  }, [predictions, sortBy, reverseSortDirection, searchProteinId, searchLysinePosition]);
+
   const setSorting = (field: keyof RowData) => {
     const reversed = field === sortBy ? !reverseSortDirection : false;
     setReverseSortDirection(reversed);
@@ -157,14 +159,17 @@ export function TableSort({ predictions }: TableResProps) {
     }
   };
 
-  const indexOfLastRow = currentPage * rowsPerPage;
-  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  let sortedAndFilteredData = sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId, searchLysinePosition });
-  const currentRows = sortedAndFilteredData.slice(indexOfFirstRow, indexOfLastRow);
-
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
+
+  // Apply search and sorting to the entire dataset
+  const filteredAndSortedData = sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId, searchLysinePosition });
+
+  // Apply pagination to the filtered and sorted data
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentRows = filteredAndSortedData.slice(indexOfFirstRow, indexOfLastRow);
 
   let i = 0;
 
@@ -198,7 +203,6 @@ export function TableSort({ predictions }: TableResProps) {
           <thead>
             <tr>
               <Th
-                
                 sorted={sortBy === 'protein_id'}
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('protein_id')}
@@ -222,6 +226,7 @@ export function TableSort({ predictions }: TableResProps) {
                 searchValue={searchLysinePosition}
                 onSearchChange={(e) => {
                   setSearchLysinePosition(e.target.value);
+                  setCurrentPage(1);
                   setSortedData(sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId, searchLysinePosition: e.target.value }));
                 }}
                 placeholder="Search"
@@ -264,12 +269,12 @@ export function TableSort({ predictions }: TableResProps) {
           </tbody>
         </Table>
         <Space h="lg" />
-        <Flex direction={'row'} gap="275px" align="center" justify="center">
-          {predictions && predictions.length > 0 && (
+        <Flex direction={'row'} gap="280px" align="center" justify="center">
+          {filteredAndSortedData.length > 0 && (
             <>
-              <Flex direction={'row'} justify="space-between" align="center" style={{ width: '895px' }}>
+              <Flex direction={'row'} justify="space-between" align="center" style={{ width: '900px' }}>
                 <Pagination
-                  total={Math.ceil(predictions.length / rowsPerPage)}
+                  total={Math.ceil(filteredAndSortedData.length / rowsPerPage)}  // Use filteredAndSortedData for total pages
                   onChange={handlePageChange}
                   value={currentPage}
                 />

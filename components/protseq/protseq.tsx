@@ -66,6 +66,8 @@ function ProtSeq() {
         <Flex direction="column" gap="50">
           <Title order={1} size="h1" style={{ marginBottom: '20px' }}>Predict with Protein Sequence</Title>
           <Textarea
+            
+            
             size='md'
             variant='filled'
             label="Protein Sequence"
@@ -80,16 +82,16 @@ function ProtSeq() {
               input: {
                 height: '20px',
                 width: '98%',
-                fontFamily: 'Roboto',
+                fontFamily: 'Roboto, monospace',
                 fontSize: '16px',
               },
               description: {
-                fontFamily: 'Roboto'
+                fontFamily: 'Roboto, monospace'
               },
               label:{
                 marginBottom:'2px',
                 fontSize: '20px',
-                fontFamily: 'Roboto'
+                fontFamily: 'Roboto, monospace'
               },
             })}
           />
