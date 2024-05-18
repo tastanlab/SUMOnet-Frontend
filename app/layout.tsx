@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: any }) {
               <Container className="header" size="100%">
                 <HeaderMenu/>
               </Container>
-              <Container h="80%" className="content" size="100%">
+              <Container h="80%" className="content" size="100%" w="100%">
                 {children}
               
 

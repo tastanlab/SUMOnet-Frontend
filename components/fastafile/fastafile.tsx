@@ -82,7 +82,7 @@ function FastaFile() {
             radius="md"
             required
             withAsterisk
-            description="Please upload a file in fasta or txt format."
+            description="Please upload a file in .fasta or .txt format."
             placeholder="Tab here to upload file."
             value={file}
           />
