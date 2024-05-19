@@ -190,10 +190,7 @@ function Prot() {
                 value={thresholdValue} onChange={setThresholdValue}
                  />
               <Space h="sm" />
-        
 
-
-         
           <Flex direction={'row'} justify="left" style={{ marginTop: '30px' }}>
             <Button type="submit" size="lg" style={{ width: '50%' }} radius="md" variant="gradient" color='blue'>
               {isLoading ? <Loader color="white" size={24} /> : 'Submit'}

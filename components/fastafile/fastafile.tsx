@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Button, Container,Alert, FileInput, Flex, Loader, Space, Title, Modal } from '@mantine/core';
+import { Button, Container,Alert, FileInput, Flex, Loader, Space, Title, Modal, Text } from '@mantine/core';
 import { IconFile } from '@tabler/icons-react';
 import TableSort from '../table/TableSort';
 import axios from 'axios';
@@ -67,62 +67,50 @@ function FastaFile() {
   return (
     <Container>
       <form>
-        <Flex direction="column" gap="50">
-        <Title order={1} size="h1" style={{ marginBottom: '20px' }}>  {/* Added space below title */}
+        <Flex direction="column" gap="md">
+          <Title order={1} size="h1" style={{ marginBottom: '20px' }}>
             Predict with Fasta File
           </Title>
-          <FileInput
-            onChange={handleFileChange}
-            w="98%"
-            leftSection={icon}
-            clearable
-            label="File Upload"
-            variant="filled"
-            size="xl"
-            radius="md"
-            required
-            withAsterisk
-            description="Please upload a file in .fasta or .txt format."
-            placeholder="Tab here to upload file."
-            value={file}
-          />
-          <Flex direction="row" gap="56%">
-            <Button
-              type="submit"
-              size="md"
-              w="195px"
+          <Flex align="center" justify="space-between" style={{ width: '100%' }}>
+            <FileInput
+              onChange={handleFileChange}
+              w="88%"
+              leftSection={icon}
+              clearable
+              label="File Upload"
+              variant="filled"
+              size="xl"
               radius="md"
-              variant="gradient"
-              color="blue"
-              onClick={handleUpload}
-            >
-              {isLoading ? <Loader color="white" size={24} /> : 'Submit'}
-            </Button>
-            <Button
-              type="button"
-              onClick={handleLoadSample}
-              size="md"
-              w="195px"
-            
-              radius="md"
-              variant="gradient"
-              color="blue"
-            >
-              Load Sample
-            </Button>
+              required
+              withAsterisk
+              description="Please upload a file in .fasta or .txt format."
+              placeholder="Tab here to upload file."
+              value={file}
+            />
+            <div style={{ textAlign: 'right',paddingTop:'50px' }}>
+              <Text component="a" style={{ cursor: 'pointer', color: 'blue'}} onClick={handleLoadSample}>
+                Load Sample
+              </Text>
+            </div>
           </Flex>
+          <Button
+            type="submit"
+            size="lg"
+            style={{ width: '25%' }}
+            radius="md"
+            variant="gradient"
+            color="blue"
+            onClick={handleUpload}
+          >
+            {isLoading ? <Loader color="white" size={24} /> : 'Submit'}
+          </Button>
         </Flex>
       </form>
       <Space h="xl" />
       <Space h="xl" />
-
-      
-        {isLoading ? null : isSubmitted && predictionsData ? (
-          <TableSort predictions={predictionsData} />
-        ) : null}
-    
-
-      {/* Error Alert */}
+      {isLoading ? null : isSubmitted && predictionsData ? (
+        <TableSort predictions={predictionsData} />
+      ) : null}
       {showError && (
         <Alert color="red" withCloseButton onClose={() => setShowError(false)} title="Error!">
           {errorMsg}
@@ -130,6 +118,7 @@ function FastaFile() {
       )}
     </Container>
   );
+  
 }
 
 export default FastaFile;

@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Button, Container, Flex ,Loader,Space,Textarea, Title,Alert } from '@mantine/core';
+import { Button, Container, Flex ,Loader,Space,Textarea, Title,Alert, Text} from '@mantine/core';
 import { createTheme, rem } from '@mantine/core';
 import axios from 'axios';
 import TableSort from '../table/TableSort';
@@ -63,62 +63,45 @@ function ProtSeq() {
   return (
     <Container>
       <form>
-        <Flex direction="column" gap="50">
+        <Flex direction="column" gap="md">
           <Title order={1} size="h1" style={{ marginBottom: '20px' }}>Predict with Protein Sequence</Title>
-          <Textarea
-            
-            
-            size='md'
-            variant='filled'
-            label="Protein Sequence"
-            radius="sm"
-            description="You may enter multiple or a single sequence in fasta format. SUMOnet will scan for all Lysine positions."
-            placeholder=">sp|O00566|MPP10_HUMAN U3 small nucleolar ribonucleoprotein protein MPP10 OS=Homo sapiens OX=9606 GN=MPHOSPH10 PE=1 SV=2\r\nMAPQVWRR..."
-            withAsterisk
-            autosize
-            value={proteinSequence}
-            onChange={(event) => setProteinSequence(event.currentTarget.value)}
-            styles={(theme) => ({
-              input: {
-                height: '20px',
-                width: '98%',
-                fontFamily: 'Roboto, monospace',
-                fontSize: '16px',
-              },
-              description: {
-                fontFamily: 'Roboto, monospace'
-              },
-              label:{
-                marginBottom:'2px',
-                fontSize: '20px',
-                fontFamily: 'Roboto, monospace'
-              },
-            })}
-          />
-          <Flex direction={'row'} gap="56%">
-            <Button type="submit" size="md" w="195px" radius="md" variant="gradient" color='blue' onClick={handleSubmit}>
-              {isLoading ? <Loader color="white" size={24} /> : 'Submit'}
-            </Button>
-            <Button
-              type="button"
-              onClick={handleLoadSample}
-              size="md"
-              w="195px"
-              radius="md"
-              variant="gradient"
-              color='blue'
-            >
+          <Flex align="center" style={{ width: '100%' }}>  
+            <Textarea
+              size='md'
+              variant='filled'
+              label="Protein Sequence"
+              radius="sm"
+              description="You may enter multiple or a single sequence in fasta format. SUMOnet will scan for all Lysine positions."
+              placeholder=">sp|O00566|MPP10_HUMAN U3 small nucleolar ribonucleoprotein protein MPP10 OS=Homo sapiens OX=9606 GN=MPHOSPH10 PE=1 SV=2\r\nMAPQVWRR..."
+              withAsterisk
+              autosize
+              value={proteinSequence}
+              onChange={(event) => setProteinSequence(event.currentTarget.value)}
+              style={{
+                flexGrow: 1,  // Allow textarea to grow filling the space
+              }}
+            />
+            <div style={{ textAlign: 'right',paddingTop:'42px' }}>
+            <Text component="a" style={{ 
+                cursor: 'pointer', 
+                color: 'blue', 
+                marginLeft: '20px',  // Spacing between the textarea and the text
+              }} onClick={handleLoadSample}>
               Load Sample
-            </Button>
+            </Text>
+            </div>
           </Flex>
+          <Button type="submit" size="lg" style={{ width: '25%' }} radius="md" variant="gradient" color='blue'  onClick={handleSubmit}>
+            {isLoading ? <Loader color="white" size={24} /> : 'Submit'}
+          </Button>
         </Flex>
       </form>
       <Space h="xl" />
       <Space h="xl" />
-
+  
       {/* Display predictions data if available */}
       {!isLoading && isSubmitted && predictionsData && <TableSort predictions={predictionsData}/>}
-
+  
       {/* Error Alert */}
       {showError && (
         <Alert color="red" withCloseButton onClose={() => setShowError(false)} title="Error!">
@@ -127,6 +110,7 @@ function ProtSeq() {
       )}
     </Container>
   );
+  
 }
 
 export default ProtSeq;
