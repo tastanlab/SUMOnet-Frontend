@@ -4,7 +4,7 @@ import { Container,Text,Image} from "@mantine/core";
 export default function BeginnerTutorialPage() {
     return (
        <Container>  
-       <h1 style={{textAlign:"center"}}>Tutorial for Beginners</h1>
+       <h1 style={{textAlign:"center"}}>Basic Tutorial</h1>
           <Container>
             <h2>How to Utilize Website?</h2>
             <Text>You can get results from the website by entering the inputs 3 different ways: Using UniProtID, Protein Sequence and Upload FASTA or txt file.</Text>

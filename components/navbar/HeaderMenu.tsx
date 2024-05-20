@@ -18,7 +18,7 @@ const links = [
   { 
     label: 'Tutorial',
     links: [
-      { link: '/beginner-tutorial', label: 'Beginner Tutorial' },
+      { link: '/beginner-tutorial', label: 'Basic Tutorial' },
       { link: '/advanced-tutorial', label: 'Advanced Tutorial' }
     ]
   }
