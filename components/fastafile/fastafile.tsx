@@ -74,7 +74,7 @@ function FastaFile() {
           <Flex align="center" justify="space-between" style={{ width: '100%' }}>
             <FileInput
               onChange={handleFileChange}
-              w="88%"
+              w="85%"
               leftSection={icon}
               clearable
               label="File Upload"

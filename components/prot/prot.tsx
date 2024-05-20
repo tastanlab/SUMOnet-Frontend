@@ -1,7 +1,7 @@
 'use client'
 import { TableSort } from '../table/TableSort';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Container, Title, Text, Flex, Loader,Modal ,TextInput, Table, Space, Group, Alert, Slider} from '@mantine/core';
 import axios from 'axios';
 
@@ -29,6 +29,13 @@ function Prot() {
   const [showError, setShowError] = useState(false);
   const [warningMsg, setWarningMsg] = useState(''); // State to store the error message
   const [showWarning, setShowWarning] = useState(false);
+
+  useEffect(() => {
+    // Clear lysine input if a comma is present in the UniProt ID
+    if (uniProtID.includes(',')) {
+      setLysine('');
+    }
+  }, [uniProtID]);
   
   
   const handleLoadSampleUniprot = () => {
@@ -99,7 +106,6 @@ function Prot() {
         );
       }
 
-
       const predictions = response.data.data;
       setPredictionsData(predictions);
       const Invalid_Ids = response.data.invalid_idS;
@@ -155,10 +161,6 @@ function Prot() {
               </Text>
             </div>
           </Flex>
-          
-
-      
-
           <Flex justify="space-between" align="center" style={{ marginBottom: '20px' }}>
             <TextInput
               variant="filled"
@@ -170,6 +172,7 @@ function Prot() {
               value={lysine}
               onChange={(event) => setLysine(event.currentTarget.value)}
               style={{ width: '75%' }}
+              disabled = {uniProtID.includes(',')}
             />
             <div style={{ textAlign: 'right',paddingTop:'42px' }}>
               <Text component="a" style={{ cursor: 'pointer', color: 'blue'}} onClick={handleLoadSampleLysine}>
@@ -234,5 +237,5 @@ function Prot() {
 
 };
 
-
 export default Prot;
+
