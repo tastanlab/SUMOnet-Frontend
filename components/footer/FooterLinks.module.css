@@ -1,4 +1,5 @@
 .footer {
+  
   margin-top: rem(120px);
   padding-top: calc(var(--mantine-spacing-md) * 1);
   padding-bottom: calc(var(--mantine-spacing-md) * 1);
@@ -98,5 +99,12 @@
 .social {
   @media (max-width: $mantine-breakpoint-sm) {
     margin-top: var(--mantine-spacing-xs);
+  }
+}
+@media (min-width: 1920px) {
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 }
