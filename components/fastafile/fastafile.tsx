@@ -108,7 +108,7 @@ function FastaFile() {
       </form>
       <Space h="xl" />
       <Space h="xl" />
-      {isLoading ? null : isSubmitted && predictionsData ? (
+      {isLoading ? null : isSubmitted && predictionsData && !showError ? (
         <TableSort predictions={predictionsData} />
       ) : null}
       {showError && (

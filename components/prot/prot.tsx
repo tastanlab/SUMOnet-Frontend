@@ -230,7 +230,7 @@ function Prot() {
     <Space h="xl" />
     {/* Display predictions data if available */}
     
-      {!isLoading && isSubmitted ? <TableSort predictions={predictionsData}/> : null}
+      {!isLoading && isSubmitted && !showError ? <TableSort predictions={predictionsData}/> : null}
   
   </Container>
 );

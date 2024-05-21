@@ -100,7 +100,7 @@ function ProtSeq() {
       <Space h="xl" />
   
       {/* Display predictions data if available */}
-      {!isLoading && isSubmitted && predictionsData && <TableSort predictions={predictionsData}/>}
+      {!isLoading && isSubmitted && predictionsData && !showError && <TableSort predictions={predictionsData}/>}
   
       {/* Error Alert */}
       {showError && (
