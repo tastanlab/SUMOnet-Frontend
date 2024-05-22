@@ -180,7 +180,7 @@ function Prot() {
               </Text>
             </div>
           </Flex>
-              <Text fw={500}> Threshold Value</Text>
+              <Text fw={500}> Threshold Value for Display</Text>
               <Text c="dimmed" size="sm" >Please choose the threshold value. </Text>
               <Space h="xs" />
               <Slider 

@@ -6,7 +6,7 @@ import classes from './HeaderMenu.module.css';
 import { useState } from 'react';
 
 const links = [
-  { link: '/about', label: 'About' },
+  
   {
     label: 'Predict',
     links: [
@@ -21,7 +21,8 @@ const links = [
       { link: '/beginner-tutorial', label: 'Website Tutorial' },
       { link: '/advanced-tutorial', label: 'Package Tutorial' }
     ]
-  }
+  },
+  { link: '/about', label: 'About' },
 ];
 
 export function HeaderMenu() {

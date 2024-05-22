@@ -12,7 +12,7 @@ const theme = createTheme({
   },
 
   headings: {
-    fontFamily: 'Arial',
+    fontFamily: 'Roboto Mono, monospace',
     sizes: {
       h1: { fontSize: rem(25) },
     },
@@ -79,6 +79,7 @@ function ProtSeq() {
               onChange={(event) => setProteinSequence(event.currentTarget.value)}
               style={{
                 flexGrow: 1,  // Allow textarea to grow filling the space
+                
               }}
             />
             <div style={{ textAlign: 'right',paddingTop:'42px' }}>
