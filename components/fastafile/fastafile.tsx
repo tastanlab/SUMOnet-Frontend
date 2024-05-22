@@ -14,6 +14,8 @@ function FastaFile() {
   const [isLoadSample, setIsLoadSample] = useState(false);
   const [errorMsg, setErrorMsg] = useState(''); // State to store the error message
   const [showError, setShowError] = useState(false); // State to control error pop-up
+  const [warningMsg, setWarningMsg] = useState(''); // State to store the error message
+  const [showWarning, setShowWarning] = useState(false);
 
   const handleFileInputChange = (e) => {
     if (e.target.files) {
@@ -29,6 +31,8 @@ function FastaFile() {
 
   const handleUpload = async (event: React.FormEvent) => {
     event.preventDefault();
+    setIsSubmitted(true);
+    setShowWarning(false);
     setShowError(false);
     if (file) {
       setIsLoading(true);
@@ -39,6 +43,15 @@ function FastaFile() {
         const response = await axios.post("http://127.0.0.1:8000/fasta-file-prediction/", formData);
         setPredictionsData(response.data.data);
         setIsSubmitted(true); // Set submitted to true only on successful data fetch
+        console.log(response.data);
+        setShowWarning(false);
+        if (response.data.errors.length > 0){
+          const errorMessages = response.data.errors.map((error) => error.error).join(", ");
+          const ids = response.data.errors.map((error) => error.ids).join(", ");
+          setWarningMsg(`Errors: ${errorMessages}. IDs: ${ids}`);
+          setShowWarning(true);
+        }
+      
       } catch (error: any) {
         setErrorMsg(error.response?.data.error || "An unexpected error occurred");
         setShowError(true);
@@ -108,6 +121,14 @@ function FastaFile() {
       </form>
       <Space h="xl" />
       <Space h="xl" />
+
+      {showWarning && (
+        <Alert color="yellow" withCloseButton onClose={() => setShowWarning(false)} title="Warning!">
+          {warningMsg}
+        </Alert>
+      )}
+      <Space h="xl" />
+
       {isLoading ? null : isSubmitted && predictionsData && !showError ? (
         <TableSort predictions={predictionsData} />
       ) : null}
