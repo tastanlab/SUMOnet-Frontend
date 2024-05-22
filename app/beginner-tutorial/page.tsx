@@ -4,11 +4,10 @@ import { Container,Text,Image} from "@mantine/core";
 export default function BeginnerTutorialPage() {
     return (
        <Container>  
-       <h1 style={{textAlign:"center"}}>Basic Tutorial</h1>
           <Container>
             <h2>How to Utilize Website?</h2>
             <Text>You can get results from the website by entering the inputs 3 different ways: Using UniProtID, Protein Sequence and Upload FASTA or txt file.</Text>
-            <Text>If you want to enter your input as UniProtID you need to select UniProtID Prediction choice from the dropdown menu. You will see
+            <Text> <b style={{ fontSize: "20px" }}>1) UniProtID:</b> If you want to enter your input as UniProtID you need to select UniProtID Prediction choice from the dropdown menu. You will see
               the following page: </Text>
               <Image 
           src="/uniProtIDPrediction.png"
@@ -19,7 +18,7 @@ export default function BeginnerTutorialPage() {
           />
           <br/>
           <Text>You need to enter UniProtID but entering Lysine Position is optional.</Text>
-          <Text>If you don't provide Lysine position result with
+          <Text> <b style={{ fontSize: "20px" }}>1.1) Without Lysine Position:</b> If you don't provide Lysine position result with
             the all possible Lysine positions will be given as following:</Text>
             <br/>
             <Image 
@@ -30,7 +29,7 @@ export default function BeginnerTutorialPage() {
           height="300px"
           />
           <br/>
-          <Text>Additionally you can provide more than 1 UniProtID to get the results of all of them. Here is how you can do it: </Text>
+          <Text> <b style={{ fontSize: "20px" }}>1.2) With multiple UniProtIDs:</b> Additionally you can provide more than 1 UniProtID to get the results of all of them. Here is how you can do it: </Text>
           <Image 
           src="/UniprotIdMulti.png"
           alt="Output"   
@@ -53,7 +52,7 @@ export default function BeginnerTutorialPage() {
           width="600px"
           />
           <br/> <br/>
-          <Text>If you provide Lysine Position, only the results with specific Lysine position you have provided will be shown like following:</Text>
+          <Text><b style={{ fontSize: "20px" }}>1.3) With Lysine Position:</b> If you provide Lysine Position, only the results with specific Lysine position you have provided will be shown like following:</Text>
           <Image 
           src="/exampleOutput2.png"
           alt="Output"   
@@ -61,7 +60,7 @@ export default function BeginnerTutorialPage() {
           fit="contain"
           height="300px"
           />
-          <Text> The second way for entering input is using protein sequence. If you want to use this option you need to select 
+          <Text> <b style={{ fontSize: "20px" }}>2) Protein Sequence:</b> The second way for entering input is using protein sequence. If you want to use this option you need to select 
             Protein Sequence Prediction choice from the dropdown menu. You will see the following page:
           </Text>
           <br/>
@@ -73,7 +72,7 @@ export default function BeginnerTutorialPage() {
           height="300px"
           />
           <Text>You can use sample protein sequence to try, or you can use your own protein sequence to make predictions.</Text> <br/>
-          <Text>The last option for entering option is using FASTA or txt file to make predictions.</Text>
+          <Text> <b style={{ fontSize: "20px" }}>3) FASTA:</b> The last option for entering option is using FASTA or txt file to make predictions.</Text>
           <Text>If you want to use this you need to select Fasta File Prediction from the dropdown menu. You will see the following page:</Text>
           <br/>
           <Image 
@@ -84,7 +83,7 @@ export default function BeginnerTutorialPage() {
           height="300px"
           />
           </Container>
-          <Text>You can use sample FASTA File to try, or you can use your own FASTA or txt file to make predictions.</Text>
+          <Text> You can use sample FASTA File to try, or you can use your own FASTA or txt file to make predictions.</Text>
        </Container>
     );
   }

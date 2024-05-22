@@ -18,8 +18,8 @@ const links = [
   { 
     label: 'Tutorial',
     links: [
-      { link: '/beginner-tutorial', label: 'Basic Tutorial' },
-      { link: '/advanced-tutorial', label: 'Advanced Tutorial' }
+      { link: '/beginner-tutorial', label: 'Website Tutorial' },
+      { link: '/advanced-tutorial', label: 'Package Tutorial' }
     ]
   }
 ];
