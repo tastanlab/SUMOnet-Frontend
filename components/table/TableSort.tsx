@@ -6,6 +6,7 @@ import classes from './TableSort.module.css';
 
 interface RowData {
   protein_id: string;
+  protein_name: string;  // Add this line
   peptide_seq: string;
   lysine_position: number;
   nonsumoylation_class_probs: number;
@@ -19,9 +20,9 @@ interface TableResProps {
 
 // Function to generate CSV content from table data
 function generateCSV(predictions) {
-  let csvContent = 'protein_id, peptide_seq, lysine_position, nonsumoylation_class_probs, sumoylation_class_probs, predicted_labels\n';
+  let csvContent = 'protein_id, protein_name, peptide_seq, lysine_position, nonsumoylation_class_probs, sumoylation_class_probs, predicted_labels\n';
   predictions.forEach(prediction => {
-    csvContent += `${prediction.protein_id}, ${prediction.peptide_seq}, ${prediction.lysine_position}, ${prediction.nonsumoylation_class_probs}, ${prediction.sumoylation_class_probs}, ${prediction.predicted_labels}\n`;
+    csvContent += `${prediction.protein_id}, ${prediction.protein_id}, ${prediction.peptide_seq}, ${prediction.lysine_position}, ${prediction.nonsumoylation_class_probs}, ${prediction.sumoylation_class_probs}, ${prediction.predicted_labels}\n`;
   });
   return csvContent;
 }
@@ -113,12 +114,14 @@ function sortData(
 export function TableSort({ predictions }: TableResProps) {
   const [searchProteinId, setSearchProteinId] = useState('');
   const [searchLysinePosition, setSearchLysinePosition] = useState('');
+  const [searchProteinName, setSearchProteinName] = useState('');
   const [sortedData, setSortedData] = useState(predictions);
   const [sortBy, setSortBy] = useState<keyof RowData | null>(null);
   const [reverseSortDirection, setReverseSortDirection] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage] = useState(10);
   const [showProteinIdSearch, setShowProteinIdSearch] = useState(false);
+  const [showProteinNameSearch, setShowProteinNameSearch] = useState(false);
   const [showLysinePositionSearch, setShowLysinePositionSearch] = useState(false);
 
   useEffect(() => {
@@ -147,6 +150,14 @@ export function TableSort({ predictions }: TableResProps) {
     setShowProteinIdSearch(!showProteinIdSearch);
     if (showProteinIdSearch) {
       setSearchProteinId('');
+      setSortedData(sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId: '', searchLysinePosition }));
+    }
+  };
+
+  const handleToggleProteinNameSearch = () => {
+    setShowProteinNameSearch(!showProteinNameSearch);
+    if (showProteinNameSearch) {
+      setSearchProteinName('');
       setSortedData(sortData(predictions, { sortBy, reversed: reverseSortDirection, searchProteinId: '', searchLysinePosition }));
     }
   };
@@ -181,6 +192,7 @@ export function TableSort({ predictions }: TableResProps) {
           <Space w="xs" />
         </div>
       </Table.Td>
+      <Table.Td className={classes.td}>{row.protein_name}</Table.Td>
       <Table.Td className={classes.td}>{row.lysine_position}</Table.Td>
       <Table.Td className={classes.td}>
         <span style={{ display: 'inline-block' }}>
@@ -217,6 +229,11 @@ export function TableSort({ predictions }: TableResProps) {
               >
                 Protein ID
               </Th>
+              <Th sorted={sortBy === 'protein_name'}
+                reversed={reverseSortDirection}
+                onSort={() => setSorting('protein_name')}>
+              Protein Name
+              </Th>
               <Th
                 sorted={sortBy === 'lysine_position'}
                 reversed={reverseSortDirection}
@@ -231,21 +248,21 @@ export function TableSort({ predictions }: TableResProps) {
                 }}
                 placeholder="Search"
               >
-                Lysine Position
+                Lysine Pos.
               </Th>
               <Th
                 sorted={sortBy === 'peptide_seq'}
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('peptide_seq')}
               >
-                Peptide Sequence
+                Peptide Seq.
               </Th>
               <Th
                 sorted={sortBy === 'sumoylation_class_probs'}
                 reversed={reverseSortDirection}
                 onSort={() => setSorting('sumoylation_class_probs')}
               >
-                Sumoylation Prob
+                Sumoylation Prob.
               </Th>
               <Th
                 sorted={sortBy === 'predicted_labels'}
@@ -269,7 +286,7 @@ export function TableSort({ predictions }: TableResProps) {
           </tbody>
         </Table>
         <Space h="lg" />
-        <Flex direction={'row'} gap="280px" align="center" justify="center">
+        <Flex direction={'row'} gap="280px" align="center" justify="center"   >
           {filteredAndSortedData.length > 0 && (
             <>
               <Flex direction={'row'} justify="space-between" align="center" style={{ width: '900px' }}>
