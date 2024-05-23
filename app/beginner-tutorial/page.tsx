@@ -17,7 +17,9 @@ export default function BeginnerTutorialPage() {
           height="300px"
           />
           <br/>
-          <Text>You need to enter UniProtID but entering Lysine Position is optional.</Text>
+          <Text>You need to enter UniProtID but entering Lysine Position is optional. Additionally, you can adjust threshold value as you wish so that it only shows
+            the results with the Sumoylation probability more than the threshold value.
+          </Text>
           <Text> <b style={{ fontSize: "20px" }}>1.1) Without Lysine Position:</b> If you don't provide Lysine position result with
             the all possible Lysine positions will be given as following:</Text>
             <br/>
