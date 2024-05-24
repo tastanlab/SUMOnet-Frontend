@@ -1,6 +1,6 @@
 import "@mantine/core/styles.css";
 import React from "react";
-import { Container,Text,Image} from "@mantine/core";
+import { Container,Text,Image, Space} from "@mantine/core";
 export default function BeginnerTutorialPage() {
     return (
        <Container size="lg">  
@@ -74,7 +74,7 @@ export default function BeginnerTutorialPage() {
           height="300px"
           />
           <Text>You can use sample protein sequence to try, or you can use your own protein sequence to make predictions.</Text> <br/>
-          <Text> <b style={{ fontSize: "20px" }}>3) FASTA:</b> The last option for entering option is using FASTA or txt file to make predictions.</Text>
+          <Text> <b style={{ fontSize: "20px" }}>3) FASTA:</b> The last option for entering option is using .fasta or .txt file to make predictions.</Text>
           <Text>If you want to use this you need to select Fasta File Prediction from the dropdown menu. You will see the following page:</Text>
           <br/>
           <Image 
@@ -84,9 +84,12 @@ export default function BeginnerTutorialPage() {
           fit="contain"
           height="300px"
           />
+          <Text> You can use sample FASTA File to try, or you can use your own .fasta or .txt file to make predictions.</Text>
+
+          
           </Container>
-          <Text> You can use sample FASTA File to try, or you can use your own FASTA or txt file to make predictions.</Text>
        </Container>
+       
     );
   }
   

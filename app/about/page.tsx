@@ -93,6 +93,18 @@ After analyzed by machine learning model, SUMOnet gives the output as Protein ID
             Dilekoglu, B., Tascioglu O.,: Sumonet: Deep sequential prediction of sumoylation sites. bioRxiv (2023).
             </a>
           </Text>
+          <h2>Website Developers:</h2>
+          
+            
+                  <Text>Alper Mert - <a href="mailto:alpermert@sabanciuniv.edu">alpermert@sabanciuniv.edu</a></Text>
+        
+                  <Text>Bülent Emin Üstün - <a href="mailto:eustun@sabanciuniv.edu">eustun@sabanciuniv.edu</a> </Text>
+              
+                  <Text>Mehmet Eren Karabulut - <a href="mailto:mkarabulut@sabanciuniv.edu">mkarabulut@sabanciuniv.edu</a></Text>
+             
+                  <Text>Şevki Aybars Türel - <a href="mailto:aturel@example.com">aturel@sabanciuniv.edu</a></Text>
+              
+          
 
         </Container>
        </Container> 
