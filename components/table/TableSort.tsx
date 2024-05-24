@@ -289,7 +289,7 @@ export function TableSort({ predictions }: TableResProps) {
         <Flex direction={'row'} gap="280px" align="center" justify="center"   >
           {filteredAndSortedData.length > 0 && (
             <>
-              <Flex direction={'row'} justify="space-between" align="center" style={{ width: '900px' }}>
+              <Flex direction={'row'} justify="space-between" align="center" style={{ width: '1100px' }}>
                 <Pagination
                   total={Math.ceil(filteredAndSortedData.length / rowsPerPage)}  // Use filteredAndSortedData for total pages
                   onChange={handlePageChange}
