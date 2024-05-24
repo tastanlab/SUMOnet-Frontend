@@ -7,7 +7,7 @@ import { FooterLinks } from "../components/footer/FooterLinks";
 import HeaderMenu from "../components/navbar/HeaderMenu";
 export const metadata = {
   title: "SUMOnet",
-  description: "Ailenizin predicterı",
+  description: "",
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -39,6 +39,13 @@ export default function RootLayout({ children }: { children: any }) {
               </Container>
 
           </Container>
+          <Space h="xl" /> 
+          <Space h="xl" />
+          <Space h="xl" />
+          <Space h="xl" />
+          <Space h="xl" />
+          <Space h="xl" />
+          <Space h="xl" />
           <Space h="xl" />
           <FooterLinks/>
           </MantineProvider>

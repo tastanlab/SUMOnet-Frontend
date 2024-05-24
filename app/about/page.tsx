@@ -3,8 +3,8 @@ import React from "react";
 import { Container,Text,Image} from "@mantine/core";
 export default function AboutPage() {
     return (
-       <Container style={{paddingBottom:"50px"}}>
-            <Container>
+       <Container  size="lg" style={{paddingBottom:"50px" }}>
+            <Container >
             <h2> What is SUMOnet?</h2>
             <Text>The SUMOnet project aims to improve the user experience, user interface, and overall performance of a web application dedicated to
   predicting potential protein chains resulting from the SUMOylation process, which is implicated in genetic-based diseases such as

@@ -78,7 +78,7 @@ function FastaFile() {
   };
 
   return (
-    <Container>
+    <Container size="lg">
       <form>
         <Flex direction="column" gap="md">
           <Title order={1} size="h1" style={{ marginBottom: '20px' }}>

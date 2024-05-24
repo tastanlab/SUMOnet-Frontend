@@ -133,7 +133,7 @@ function Prot() {
     
   };
   return (
-    <Container>
+    <Container size="lg">
     <Flex justify="space-between">
       {/* Left Half: Form Elements */}
       <Flex direction={'column'} style={{ width: '50%', paddingRight: '40px' }}>

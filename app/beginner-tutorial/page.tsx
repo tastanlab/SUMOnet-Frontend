@@ -3,7 +3,7 @@ import React from "react";
 import { Container,Text,Image} from "@mantine/core";
 export default function BeginnerTutorialPage() {
     return (
-       <Container>  
+       <Container size="lg">  
           <Container>
             <h2>How to Utilize Website?</h2>
             <Text>You can get results from the website by entering the inputs 3 different ways: Using UniProtID, Protein Sequence and Upload FASTA or txt file.</Text>

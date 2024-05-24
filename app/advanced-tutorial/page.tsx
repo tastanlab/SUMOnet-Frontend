@@ -3,7 +3,7 @@ import React from "react";
 import { Container,Text,Image} from "@mantine/core";
 export default function AdvancedTutorialPage() {
     return (
-       <Container style={{paddingBottom:"50px"}}> {/* Advanced Tutorial Başlangıç */}
+       <Container size="lg" style={{paddingBottom:"50px"}}> {/* Advanced Tutorial Başlangıç */}
                 <Container>
                     <h2>How to Use SUMOnet?</h2>
                     <Text>You can install SUMOnet as a python package as well: <b>pip install sumonet</b></Text>
