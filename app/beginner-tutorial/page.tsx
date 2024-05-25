@@ -7,7 +7,7 @@ export default function BeginnerTutorialPage() {
           <Container>
             <h2>How to Utilize Website?</h2>
             <Text>You can get results from the website by entering the inputs 3 different ways: Using UniProtID, Protein Sequence and Upload FASTA or txt file.</Text>
-            <Text> <b style={{ fontSize: "20px" }}>1) UniProtID:</b> If you want to enter your input as UniProtID you need to select UniProtID Prediction choice from the dropdown menu. You will see
+            <Text> <b style={{ fontSize: "20px" }}>1) UniProtID:</b> If you want to enter your input as UniProtID you need to select Predict with UniProt ID choice from the dropdown menu. You will see
               the following page: </Text>
               <Image 
           src="/uniProtIDPrediction.png"
@@ -28,7 +28,7 @@ export default function BeginnerTutorialPage() {
           alt="Output"   
           radius="md"
           fit="contain"
-          height="300px"
+          height="500px"
           />
           <br/>
           <Text> <b style={{ fontSize: "20px" }}>1.2) With multiple UniProtIDs:</b> Additionally you can provide more than 1 UniProtID to get the results of all of them. Here is how you can do it: </Text>
@@ -42,13 +42,13 @@ export default function BeginnerTutorialPage() {
           <br/>
           <Text>The results for both UniProtIDs will be given as following: </Text>
           <Image 
-          src="/UniprotIdMulti1.png"
+          src="/exampleOutput1.png"
           alt="Output"   
-          height="300px"
-          width="600px"
+          height="500px"
           />
+          <br/>
           <Image 
-          src="/UniprotIdMulti2.png"
+          src="/UniprotIdMulti2.jpeg"
           alt="Output"   
           height="300px"
           width="600px"
@@ -56,14 +56,14 @@ export default function BeginnerTutorialPage() {
           <br/> <br/>
           <Text><b style={{ fontSize: "20px" }}>1.3) With Lysine Position:</b> If you provide Lysine Position, only the results with specific Lysine position you have provided will be shown like following:</Text>
           <Image 
-          src="/exampleOutput2.png"
+          src="/exampleOutput2.jpeg"
           alt="Output"   
           radius="md"
           fit="contain"
           height="300px"
           />
           <Text> <b style={{ fontSize: "20px" }}>2) Protein Sequence:</b> The second way for entering input is using protein sequence. If you want to use this option you need to select 
-            Protein Sequence Prediction choice from the dropdown menu. You will see the following page:
+            Predict with Protein Sequence choice from the dropdown menu. You will see the following page:
           </Text>
           <br/>
           <Image 
@@ -75,7 +75,7 @@ export default function BeginnerTutorialPage() {
           />
           <Text>You can use sample protein sequence to try, or you can use your own protein sequence to make predictions.</Text> <br/>
           <Text> <b style={{ fontSize: "20px" }}>3) FASTA:</b> The last option for entering option is using .fasta or .txt file to make predictions.</Text>
-          <Text>If you want to use this you need to select Fasta File Prediction from the dropdown menu. You will see the following page:</Text>
+          <Text>If you want to use this you need to select Predict with Fasta File from the dropdown menu. You will see the following page:</Text>
           <br/>
           <Image 
           src="/FastaFile.png"

@@ -8,9 +8,11 @@ export default function AboutPage() {
             <h2> What is SUMOnet?</h2>
             <Text>The SUMOnet project aims to improve the user experience, user interface, and overall performance of a web application dedicated to
   predicting potential protein chains resulting from the SUMOylation process, which is implicated in genetic-based diseases such as
-Alzheimer's, cancer, and diabetes. The third version of SUMOnet (SUMOnet-3) is deployed in this website.<br/> SUMOnet takes 3 different input types: First, the user can enter the UniprotID of the protein and the lysine position (optionally)
+Alzheimer's, cancer, and diabetes. The third version of SUMOnet (SUMOnet-3) is deployed in this website.<br/> SUMOnet takes 3 different input types:
+First, the user can enter the UniprotID of the protein and the lysine position (optionally). Additionally users can adjust the threshold value as they wish
+so that only the results whose Sumoylation Probability bigger than threshold will be shown. <br/>
 Another input type is entering the protein sequence that needs to be evaluated. Lastly, user can enter the input as FASTA format. <br/>
-After analyzed by machine learning model, SUMOnet gives the output as Protein ID, Peptide Sequence, Lysine Position, Sumoylation Probability and the Predicted Label.
+After analyzed by machine learning model, SUMOnet gives the output as Protein ID, Protein Name, Lysine Position, Peptide Sequence, Sumoylation Probability and the Prediction.
  </Text>
  <br/>
  <div>
