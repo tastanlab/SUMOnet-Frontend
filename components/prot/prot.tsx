@@ -204,7 +204,9 @@ function Prot() {
 
       {/* Right Half: Text or Additional Content */}
       <Flex direction={'column'} justify="center" style={{ width: '50%', paddingLeft: '40px' }}>
-        <p style={{ marginBottom: '20px' }}>You can enter Uniprot ID and Lysine position to get results. 
+        <p style={{ margin: '0px',
+          paddingBottom:'75px'
+         }}>You can enter Uniprot ID and Lysine position to get results. 
         You have to enter at least one valid Uniprot ID to get result. 
         If you want to see the result for the specific Lysine position, you have to enter valid Lysine position for given Uniprot ID. 
         Besides, you can arrange threshold value from slider. Results with a Sumoylation probability equal to or greater than the selected threshold will be listed. </p>
