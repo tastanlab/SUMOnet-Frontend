@@ -1,0 +1,31 @@
+/* Apply zero margin and padding to all elements */
+
+
+/* Ensure the html and body elements also have zero margin and padding */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+/* Optional: Set a minimum height for the body to ensure it covers the viewport */
+.main_container{
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.footer{
+    margin-left: 0px;
+    padding-bottom: 0   px;
+    bottom: 0;
+    flex-shrink: 0;
+
+}
+.header {
+    flex-shrink: 0;
+  }
+.content {
+    padding-top: 50px;
+    flex-grow: 1;
+
+}

@@ -1,7 +1,7 @@
 import "@mantine/core/styles.css";
 import React from "react";
-
-import { MantineProvider, ColorSchemeScript, Container,Space  } from "@mantine/core";
+import "./layout_responsive.css";
+import { MantineProvider, ColorSchemeScript, Container} from "@mantine/core";
 import { theme } from "../theme";
 import { FooterLinks } from "../components/footer/FooterLinks";
 import HeaderMenu from "../components/navbar/HeaderMenu";
@@ -28,26 +28,18 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme}>
-          <Container size="100%" >
-              <Container className="header" size="100%">
+          <Container className="main_container" size="100%" style={{paddingInline:'0px'}} >
+              <Container className="header" size="100%" w="100%" style={{paddingInline:'0px'}}>
                 <HeaderMenu/>
               </Container>
-              <Container h="80%" className="content" size="100%" w="100%">
+              <Container h="80%" className="content" size="100%" w="100%" style={{paddingInline:'0px'}}>
                 {children}
-              
-
               </Container>
-
+              <Container className="footer" size="100%" w="100%" style={{paddingInline:'0px'}}>
+                <FooterLinks/>
+              </Container>
           </Container>
-          <Space h="xl" /> 
-          <Space h="xl" />
-          <Space h="xl" />
-          <Space h="xl" />
-          <Space h="xl" />
-          <Space h="xl" />
-          <Space h="xl" />
-          <Space h="xl" />
-          <FooterLinks/>
+
           </MantineProvider>
 
       </body>
